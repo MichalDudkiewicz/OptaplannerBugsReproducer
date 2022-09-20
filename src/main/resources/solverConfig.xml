@@ -23,5 +23,8 @@
             <secondsSpentLimit>3000</secondsSpentLimit>
             <unimprovedSecondsSpentLimit>2</unimprovedSecondsSpentLimit>
         </termination>
+        <moveListFactory>
+            <moveListFactoryClass>org.example.FarSlotChangeMoveFactory</moveListFactoryClass>
+        </moveListFactory>
     </localSearch>
 </solver>
