@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver xmlns="https://www.optaplanner.org/xsd/solver" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.optaplanner.org/xsd/solver https://www.optaplanner.org/xsd/solver/solver.xsd">
+
+    <environmentMode>NON_REPRODUCIBLE</environmentMode>
+
+    <moveThreadCount>AUTO</moveThreadCount>
+
+    <!-- Define the model -->
+    <solutionClass>org.example.ShiftsSolution</solutionClass>
+    <entityClass>org.example.HalfHourTimeslot</entityClass>
+
+    <!-- Define the score function -->
+    <scoreDirectorFactory>
+        <constraintProviderClass>org.example.ShiftsConstraintProvider</constraintProviderClass>
+    </scoreDirectorFactory>
+
+    <constructionHeuristic/>
+
+    <localSearch>
+        <termination>
+            <terminationCompositionStyle>OR</terminationCompositionStyle>
+            <secondsSpentLimit>3000</secondsSpentLimit>
+            <unimprovedSecondsSpentLimit>2</unimprovedSecondsSpentLimit>
+        </termination>
+    </localSearch>
+</solver>

@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.5.0.3"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.optaplanner:optaplanner-core:8.27.0.Final'
+
+    runtimeOnly 'ch.qos.logback:logback-classic:1.2.11'
+}
