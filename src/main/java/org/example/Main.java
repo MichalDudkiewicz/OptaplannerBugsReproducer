@@ -1,5 +1,8 @@
 package org.example;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.*;
@@ -21,6 +24,27 @@ public class Main {
         return Arrays.asList(team1, team2);
     }
 
+    private static void serialize(ShiftsSolution solution) {
+        try
+        {
+            //Saving of object in a file
+            FileOutputStream file = new FileOutputStream("src/test/resources/testSolution.ser");
+            ObjectOutputStream out = new ObjectOutputStream(file);
+
+            // Method for serialization of object
+            out.writeObject(solution);
+
+            out.close();
+            file.close();
+
+            System.out.println("Object has been serialized");
+        }
+        catch(IOException ex)
+        {
+            System.out.println("IOException is caught");
+        }
+    }
+
     public static void main(String... args) {
         List<HalfHourTimeslot> slots = createDummySlots();
         List<Team> teams = createDummyTeams();
@@ -32,5 +56,7 @@ public class Main {
         ShiftsSolution solution = shiftsSolver.solve(problem);
 
         System.out.println(solution);
+
+        serialize(solution);
     }
 }

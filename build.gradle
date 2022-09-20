@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     implementation 'org.optaplanner:optaplanner-core:8.27.0.Final'
+    testImplementation 'org.optaplanner:optaplanner-test:8.27.0.Final'
 
     runtimeOnly 'ch.qos.logback:logback-classic:1.2.11'
 }
